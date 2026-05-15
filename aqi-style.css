@@ -1,0 +1,229 @@
+:root {
+    --bg-color: #e3e6ea;
+    --card-bg: #ffffff;
+    --text-main: #2d3436;
+    --text-sub: #636e72;
+    --accent-green: #2ecc71;
+    --accent-line: #06c755;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-main);
+    padding: 30px 0;
+}
+
+.control-panel {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.nav-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-control {
+    background: #fff;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-control:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+.btn-control:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-save { background: var(--accent-green); color: white; }
+.btn-line { background: var(--accent-line); color: white; }
+
+.row-indicator { font-size: 0.9rem; color: #666; font-weight: 600; margin-left: 10px; }
+
+.dashboard-container {
+    width: 800px;
+    min-height: 1132px;
+    background: var(--card-bg);
+    border-radius: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#loading {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.95);
+    z-index: 10;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.5rem; color: #666; flex-direction: column;
+}
+
+.header {
+    padding: 40px 50px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.location-badge {
+    background: #e8f4fd;
+    color: #0984e3;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.location h2 { margin: 0; font-size: 2.2rem; font-weight: 700; color: #333; line-height: 1.2; }
+.location p { margin: 10px 0 0; font-size: 1.1rem; color: var(--text-sub); line-height: 1.4; }
+
+.aqi-card {
+    margin: 20px 50px 40px;
+    padding: 40px 30px;
+    border-radius: 40px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #FF9966, #FF5E62);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    position: relative;
+}
+.aqi-icon { font-size: 7rem; margin-bottom: 5px; opacity: 0.95; text-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+.aqi-title { font-size: 1.5rem; opacity: 0.9; margin-bottom: 5px; font-weight: 300; }
+.aqi-value { font-size: 10rem; font-weight: 700; line-height: 1; margin: 5px 0 20px; letter-spacing: -4px; }
+
+.status-badge {
+    background: rgba(255,255,255,0.25);
+    padding: 12px 40px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+    font-size: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 50px;
+    margin-bottom: 40px;
+}
+.detail-item {
+    background: #fafafa;
+    border: 2px solid #eee;
+    padding: 25px;
+    border-radius: 30px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.detail-label { font-size: 1.1rem; color: var(--text-sub); margin-bottom: 8px; font-weight: 600; }
+.detail-value { font-size: 3.5rem; font-weight: 700; color: var(--text-main); }
+.unit { font-size: 1.3rem; font-weight: 400; color: #999; }
+
+.recommendation {
+    margin: 0 50px 30px;
+    background: #fff8e1;
+    border-radius: 25px;
+    padding: 30px;
+    border-left: 10px solid #ffc107;
+}
+.rec-title { font-weight: 600; margin-bottom: 15px; font-size: 1.5rem; display: flex; align-items: center; gap: 12px; }
+.rec-text { font-size: 1.3rem; color: #444; line-height: 1.6; margin-bottom: 10px; }
+.rec-text i { color: #f39c12; margin-right: 10px; width: 25px; text-align: center; }
+
+.footer {
+    background: #f8f9fa;
+    border-top: 2px solid #eee;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+    display: flex; justify-content: center; align-items: center; gap: 12px;
+    margin-top: auto;
+}
+.footer i { color: #2ecc71; font-size: 1.5rem; }
+
+#autoStatus {
+    position: fixed;
+    bottom: 10px; right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: #00ff00;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 100;
+    font-family: monospace;
+}
+/* =========================================
+   4. AQI Scale Bar (แถบเทียบสีด้านล่าง)
+   ========================================= */
+.aqi-scale-container {
+    margin: 0 50px 30px;
+    background: #fff;
+    padding: 0;
+    text-align: center;
+}
+.scale-title {
+    color: #0056b3;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.scale-wrapper {
+    display: flex;
+    width: 100%;
+}
+.scale-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.scale-range {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 3px;
+    font-weight: 500;
+}
+.scale-color {
+    padding: 10px 5px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+.scale-desc {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 3px;
+}
+
+/* สีตามภาพมาตรฐานเป๊ะๆ */
+.bg-blue { background-color: #33ccff; color: #000; }
+.bg-green { background-color: #92d050; color: #000; }
+.bg-yellow { background-color: #ffff00; color: #000; }
+.bg-orange { background-color: #ff9900; color: #000; }
+.bg-red { background-color: #ff0000; color: #fff; }
